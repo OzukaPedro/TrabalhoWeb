@@ -13,30 +13,36 @@ function LoginScreen() {
       <div className=" bg-zinc-800  h-screen w-screen flex justify-center items-center ">
         <div className="">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="grid gap-2 ">
-              <h1 className=" flex justify-center">Login</h1>
+            <div className="grid gap-2 bg-white border rounded-lg p-8">
+              <h1 className=" flex justify-center pb-4 text-3xl font-extrabold ">
+                Login
+              </h1>
               <input
-                className="w-64 h-6 border border-black"
+                className="w-64 h-10 pl-2 border rounded-md border-slay-200 focus:outline-none focus:border-blue-400"
                 name="email"
                 type="email"
+                placeholder="Digite seu email"
                 {...register("email")}
               />
               <div>
                 <input
-                  className="w-64 h-6 border border-black "
+                  className="w-64 h-10 pl-2 border rounded-md border-slay-200 focus:outline-none focus:border-blue-400"
                   name="password"
                   type="password"
+                  placeholder="Digite sua senha"
                   {...register("password")}
                 />
                 <div className="flex justify-between">
-                  <p className=" text-xs text-blue-800">Esqueceu a conta?</p>
-                  <p className=" text-xs pl-6 text-blue-800 ">
+                  <p className=" text-xs text-blue-800 hover:text-blue-600 hover:underline">
+                    Esqueceu a conta?
+                  </p>
+                  <p className=" text-xs pl-6 text-blue-800  hover:text-blue-600 hover:underline">
                     Cadastre-se aqui
                   </p>
                 </div>
               </div>
               <input
-                className=" w-64 h-6 border border-black "
+                className=" w-64 h-10 border bg-blue-700 rounded-md hover:bg-blue-500"
                 type="submit"
                 onSubmit={onSubmit}
               />
