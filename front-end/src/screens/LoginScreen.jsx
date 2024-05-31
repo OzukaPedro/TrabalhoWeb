@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../index.css";
 import { useForm } from "react-hook-form";
 
@@ -36,9 +37,12 @@ function LoginScreen() {
                   <p className=" text-xs text-blue-800 hover:text-blue-600 hover:underline">
                     Esqueceu a conta?
                   </p>
-                  <p className=" text-xs pl-6 text-blue-800  hover:text-blue-600 hover:underline">
+                  <Link
+                    to="register"
+                    className=" text-xs pl-6 text-blue-800  hover:text-blue-600 hover:underline"
+                  >
                     Cadastre-se aqui
-                  </p>
+                  </Link>
                 </div>
               </div>
               <input
