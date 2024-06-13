@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 const RegisterScreen = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     axios({
       method: "post",
       url: "http://localhost:3000/register",

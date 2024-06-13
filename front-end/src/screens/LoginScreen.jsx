@@ -1,14 +1,36 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../index.css";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
 
-function onSubmit(data) {
-  console.log(data);
+import "react-toastify/dist/ReactToastify.css";
+
+async function logandoUsuario(data) {
+  let bool = false;
+  let res = await axios
+    .post("http://localhost:3000/login", data)
+    .then((res) => {
+      localStorage.setItem("token", res.data.token);
+      bool = true;
+    })
+    .catch((err) => {
+      toast.error(err.message);
+    });
+  return bool;
 }
 
 function LoginScreen() {
   const { register, handleSubmit } = useForm();
-
+  const router = useNavigate();
+  const onSubmit = async (data) => {
+    let bool = await logandoUsuario(data);
+    console.log(bool);
+    if (bool) {
+      router("/dashboard");
+    }
+    console.log(data);
+  };
   return (
     <>
       <div className=" bg-zinc-800  h-screen w-screen flex justify-center items-center ">
