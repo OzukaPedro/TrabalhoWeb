@@ -1,10 +1,11 @@
 import "../index.css";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 const RegisterScreen = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
+  const router = useNavigate();
+  function onSubmit(data) {
     axios({
       method: "post",
       url: "http://localhost:3000/register",
@@ -14,7 +15,9 @@ const RegisterScreen = () => {
         password: data.password,
       },
     });
-  };
+    router("/");
+  }
+  const { register, handleSubmit } = useForm();
 
   return (
     <div className="bg-zinc-800  h-screen w-screen flex justify-center items-center ">
